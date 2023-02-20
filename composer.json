@@ -1,0 +1,24 @@
+{
+    "name": "subhh/vufind-shared",
+    "description": "VuFind Shared Components",
+    "authors": [
+        {
+            "name": "David Maus",
+            "email": "david.maus@sub.uni-hamburg.de"
+        }
+    ],
+    "homepage": "https://github.com/subhh/vufind-shared",
+    "license": "GPL-3.0-or-later",
+    "support": {
+        "issues": "https://github.com/subhh/vufind-shared/issues"
+    },
+    "autoload": {
+        "psr-4": {
+            "SUBHH\\VuFind\\Shared\\": [ "src/main/php", "src/test/php"]
+        }
+    },
+    "require-dev": {
+        "vufind/vufind": "^8.1",
+        "ahand/mobileesp": "dev-master"
+    }
+}
