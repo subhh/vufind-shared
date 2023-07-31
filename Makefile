@@ -7,7 +7,7 @@ test.phan:
 
 .PHONY: test.phpstan
 test.phpstan:
-	tools/phpstan --level=7 --autoload-file=vufind-autoload.php analyze src/main
+	tools/phpstan --level=7 analyze src/main
 
 .PHONY: test.phpunit
 test.phpunit:
