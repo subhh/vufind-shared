@@ -17,6 +17,15 @@
             "SUBHH\\VuFind\\Shared\\": [ "src/main/php", "src/test/php"]
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/subhh/vufind-recorddescription"
+        }
+    ],
+    "require": {
+        "subhh/vufind-recorddescription": "dev-main"
+    },
     "require-dev": {
         "vufind/vufind": "^8.1",
         "ahand/mobileesp": "dev-master"
