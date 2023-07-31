@@ -25,7 +25,7 @@ declare(strict_types=1);
 
 namespace SUBHH\VuFind\Shared;
 
-use SUBHH\VuFind\SolrMarc\SolrMarc;
+use VuFind\RecordDriver\SolrMarc;
 
 final class OpenAccessViewHelper
 {
