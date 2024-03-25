@@ -1,0 +1,32 @@
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":393,
+    "params":{
+      "q":"*:*",
+      "facet.field":"lang_code",
+      "json.nl":"arrarr",
+      "fq":"collection_details:GBV_ILN_22",
+      "rows":"0",
+      "facet":"true",
+      "wt":"json"
+    }
+  },
+  "response":{
+    "numFound":37243789,
+    "start":0,
+    "maxScore":1.0,
+    "numFoundExact":true,
+    "docs":[ ]
+  },
+  "facet_counts":{
+    "facet_queries":{ },
+    "facet_fields":{
+      "lang_code":[["eng",9958704],["ger",7704434],["fre",634871],["spa",295543],["ita",154394],["lat",133110],["rus",105671],["por",82748],["pol",64170],["und",61581],["swe",51714],["chi",50472],["dut",48342],["ara",31045],["dan",30701],["cat",23131],["cze",22979],["grc",22607],["gre",20009],["nor",19204],["zxx",18931],["hun",16943],["jpn",16321],["kor",15661],["tur",14275],["heb",13136],["fin",10979],["per",10689],["srp",8568],["nds",8565],["hrv",8072],["ind",7605],["tib",7311],["rum",7291],["est",6990],["vie",6661],["yid",6493],["bul",6043],["ukr",5672],["san",5363],["lit",4416],["lav",4324],["gmh",3862],["urd",3844],["slv",3684],["slo",3508],["tha",3153],["glg",2819],["mul",2307],["hin",2291],["ice",2149],["may",1614],["baq",1271],["afr",1251],["arc",1154],["ota",1142],["cop",1072],["mac",1072],["gle",1067],["wel",1013],["swa",1002],["bel",932],["ben",895],["roa",786],["deu",773],["fry",739],["chu",691],["fra",659],["bos",656],["hau",611],["syc",608],["geo",599],["goh",584],["pli",572],["nob",564],["jav",553],["arm",549],["chm",537],["enm",531],["dum",530],["amh",525],["map",519],["fro",494],["ang",490],["aze",464],["frm",462],["tgl",448],["mon",431],["oci",413],["non",406],["kur",400],["wen",399],["alb",390],["syr",356],["tam",353],["kal",342],["pra",334],["kaz",332],["akk",284],["bnt",263]]
+    },
+    "facet_ranges":{ },
+    "facet_intervals":{ },
+    "facet_heatmaps":{ }
+  }
+}

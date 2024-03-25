@@ -25,9 +25,10 @@ declare(strict_types=1);
 
 namespace SUBHH\VuFind\Shared;
 
-use VuFindSearch\Backend\Solr\Response\Json\RecordCollection;
-use VuFindSearch\Backend\Solr\Response\Json\Facets; // @phan-suppress-current-line PhanUnreferencedUseNormal
 use VuFindSearch\Service;
+use VuFindSearch\ParamBag;
+use VuFindSearch\Command\CommandInterface;
+use VuFindSearch\Backend\Solr\Response\Json\RecordCollection;
 
 use Laminas\EventManager\EventInterface;
 use Laminas\EventManager\SharedEventManagerInterface;
@@ -51,28 +52,24 @@ final class PruneSolrFieldFacetListener
         $events->attach('VuFindSearch', Service::EVENT_POST, [$this, 'onSearchPost']);
     }
 
+    /** @param EventInterface<CommandInterface, ParamBag> $event */
     public function onSearchPost (EventInterface $event) : void
     {
-        $response = $event->getTarget();
-        if ($response instanceof RecordCollection) {
-
-            /** @var Facets */
-            $facets = $response->getFacets();
-            $fieldfacets = $facets->getFieldFacets(); // @phan-suppress-current-line PhanNonClassMethodCall
-            if (isset($fieldfacets[$this->field])) {
-                $facet = $fieldfacets[$this->field];
-                $facet->rewind();
-
-                $remove = array();
-                while ($facet->valid()) {
-                    $value = $facet->key();
-                    if ($this->filter->accept($value) === false) {
-                        $remove[] = $value;
-                    }
-                    $facet->next();
+        $command = $event->getTarget();
+        if ($command instanceof CommandInterface) {
+            $response = $command->getResult();
+            if ($response instanceof RecordCollection) {
+                $facets = $response->getFacets();
+                if (array_key_exists($this->field, $facets)) {
+                    $facets[$this->field] = array_filter($facets[$this->field], array($this, 'filter'), ARRAY_FILTER_USE_KEY);
                 }
-                $facet->removeKeys($remove);
+                $response->setFacets($facets);
             }
         }
+    }
+
+    private function filter (mixed $key) : bool
+    {
+        return $this->filter->accept($key);
     }
 }
