@@ -620,14 +620,14 @@ class K10PlusFullDescriptionProvider implements DescriptionProviderInterface
     {
         foreach ($reader->getSubfields($field, 'w') as $id) {
             if (str_starts_with($id, '(DE-627)')) {
-                $value->setSearchTerm((string)substr($id, 8));
+                $value->setSearchTerm(substr($id, 8));
                 $value->setSearchType('Id');
                 return;
             }
         }
         foreach ($reader->getSubfields($field, 'w') as $id) {
             if (str_starts_with($id, '(DE-600)')) {
-                $value->setSearchTerm('(DE-599)ZDB' . (string)substr($id, 8));
+                $value->setSearchTerm('(DE-599)ZDB' . substr($id, 8));
                 $value->setSearchType('Numbers');
                 $value->setSearchTermQuote('"');
                 return;
