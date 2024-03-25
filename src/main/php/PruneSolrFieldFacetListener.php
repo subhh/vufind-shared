@@ -52,7 +52,7 @@ final class PruneSolrFieldFacetListener
         $events->attach('VuFindSearch', Service::EVENT_POST, [$this, 'onSearchPost']);
     }
 
-    /** @param EventInterface<CommandInterface, ParamBag> $event */
+    /** @param EventInterface<Service, ParamBag> $event */
     public function onSearchPost (EventInterface $event) : void
     {
         $command = $event->getParam('command');
