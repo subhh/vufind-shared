@@ -23,7 +23,7 @@ final class PruneSolrFieldFacetListenerTest extends TestCase
         $command = $this->createMock(CommandInterface::class);
         $command->method('getResult')->willReturn($response);
         $event = $this->createMock(EventInterface::class);
-        $event->method('getTarget')->willReturn($command);
+        $event->method('getParam')->willReturn($command);
 
         $facets = $response->getFacets()['lang_code'];
         $this->assertNotEquals(1, count($facets));

@@ -55,7 +55,7 @@ final class PruneSolrFieldFacetListener
     /** @param EventInterface<CommandInterface, ParamBag> $event */
     public function onSearchPost (EventInterface $event) : void
     {
-        $command = $event->getTarget();
+        $command = $event->getParam('command');
         if ($command instanceof CommandInterface) {
             $response = $command->getResult();
             if ($response instanceof RecordCollection) {
