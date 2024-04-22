@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setDomains", [<?= implode(',', $domains) ?>]]);
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  if (document.documentURI.includes('/Search/Results') && !document.documentURI.includes('&page=')) {
+    _paq.push(['trackEvent', 'COUNTER5', 'Searches_Platform']);
+  } else if (/\/Record\/[^\/]+(\?.+)?$/.test(document.documentURI)) {
+    _paq.push(['trackEvent', 'COUNTER5', 'Total_Item_Investigations']);
+  }
+  (function() {
+    var u="https://matomo.uni-hamburg.de/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '<?= $siteId =>']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="https://matomo.uni-hamburg.de/matomo.php?idsite=<?= $siteId ?>&amp;rec=1" style="border:0;" alt="" /></p></noscript>
