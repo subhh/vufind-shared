@@ -456,8 +456,11 @@ class K10PlusFullDescriptionProvider implements DescriptionProviderInterface
             [$this->getDataField($reader, '100')],
             $reader->getFields('700')
         );
+        $names = array();
         foreach ($fields as $field) {
-            if ($name = $reader->getSubfield($field, 'a')) {
+            if ($name = $reader->getSubfield($field, 'a') && !in_array($name, $names, true)) {
+                $names[] = $name;
+
                 $value = new DisplayValueSequence();
 
                 $person = new SearchLink($name);
